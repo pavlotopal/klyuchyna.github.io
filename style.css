@@ -1,0 +1,806 @@
+html {
+ font-family: Georgia;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ min-width: 1260px;
+}
+
+a {
+ text-decoration: none;
+}
+
+#menu {
+ width: 100%;
+ height: 50px;
+ position: fixed;
+ top: -60px;
+ left: 0;
+ box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: .3s ease-in-out;
+ background: white;
+ z-index: 2;
+}
+
+.option {
+ height: 100%;
+ width: calc(100%/3);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+}
+
+.optionBlock {
+ width: 60%;
+ height: 60%;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ overflow: hidden;
+}
+
+.optionBlock::before, .optionBlock::after {
+ content: '';
+ width: 100%;
+ height: 10%;
+ position: absolute;
+ background: red;
+ transition: .3s;
+}
+
+.optionBlock::before {
+ top: 0;
+ left: -100%;
+}
+
+.optionBlock::after {
+ top: 90%;
+ left: 100%;
+}
+
+.option:hover .optionBlock::before {
+ left: 0;
+}
+
+.option:hover .optionBlock::after {
+ left: 0;
+}
+
+#button {
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+ box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ position: fixed;
+ top: 20px;
+ left: 12px;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: .3s ease-in-out;
+ background: white;
+ z-index: 2;
+}
+
+#line {
+ width: 60%;
+ height: 3px;
+ background: black;
+ position: relative;
+ transition: .3s;
+}
+
+#line::before, #line::after {
+ content: '';
+ width: 100%;
+ height: 3px;
+ background: black;
+ position: absolute;
+ transition: .3s;
+}
+
+#line::before {
+ transform: translateY(-7px);
+}
+
+#line::after {
+ transform: translateY(7px);
+}
+
+#button.x {
+ top: 62px;
+ background: black;
+}
+
+#button.x #line {
+ transform: rotate(45deg);
+ background: white;
+}
+
+#button.x #line::before {
+ transform: rotate(-90deg);
+ background: white;
+}
+
+#button.x #line::after {
+ transform: rotate(-90deg);
+ background: white;
+}
+
+#menu.y {
+ top: 0;
+}
+
+#header {
+ width: 100%;
+ height: 450px;
+ background: url("PICTURES/bg.jpg") no-repeat center/cover;
+ background-attachment: fixed;
+ position: fixed;
+ top: 0;
+ left: 0;
+}
+
+#name {
+ width: 100%;
+ height: 450px;
+ font-size: 70px;
+ text-shadow: 0 0 10px rgba(0,0,0,0.5);
+ position: absolute;
+ top: 0;
+ left: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ text-align: center;
+ transform: translateY(-80px);
+ opacity: 0;
+ z-index: 1;
+ transition: .7s;
+}
+
+.mainBlock {
+ width: 100%;
+ position: absolute;
+ top: 450px;
+ left: 0;
+ background: white;
+ box-shadow: 0 0 20px rgba(0,0,0,0.7);
+ overflow: hidden;
+}
+
+.mainBlock1 { height: 2384.4px; }
+.mainBlock2 { height: 2874.4px; }
+.mainBlock3 { height: 1046.4px; }
+.mainBlock4 { height: 2830.4px; }
+.mainBlock5 { height: 1595.4px; }
+.mainBlock6 { height: 1215.4px; }
+.mainBlock7 { height: 5298.4px; }
+.mainBlock8 { height: 2931.4px; }
+
+#sliderBlock {
+ position: absolute;
+ top: 0;
+ width: 100%;
+ height: 450px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+#frame {
+ width: 1250px;
+ height: 425px;
+ position: relative;
+ overflow: hidden;
+}
+
+#slider {
+ width: 3750px;
+ height: 100%;
+ position: absolute;
+ background: black;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transform: translateX(-1250px);
+ transition: .5s;
+}
+
+.s {
+ width: 1250px;
+ height: 100%;
+ position: relative;
+ overflow: hidden;
+}
+
+.frameForMainPhoto {
+ width: 290px;
+ height: 405px;
+ position: relative;
+ margin: 10px;
+ cursor: pointer;
+ overflow: hidden;
+ transform: translateX(-310px);
+ transition: 1s;
+}
+
+.mainPhoto, .memoryPhoto, .photo {
+ width: 100%;
+ height: 100%;
+ position: relative;
+ z-index: 0;
+ transition: .3s;
+}
+
+.frameForMainPhoto::before, .frameForMemoryPhoto::before, .frameForPhoto::before {
+ text-align: center;
+ word-wrap: break-word;
+ width: 100%;
+ height: 100%;
+ background: rgba(0,0,0,0.5);
+ position: absolute;
+ opacity: 0;
+ transform: perspective(500px) translateZ(200px);
+ transition: .3s;
+ color: white;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 27px;
+ z-index: 1;
+}
+
+.frameForMainPhoto::before, .p2::before {
+ content: 'ПАВЛО КЛЮЧИНА 1914-1972';
+}
+
+.m1::before {
+ content: "МЕМОРІАЛЬНА ДОШКА";
+}
+
+.m2::before {
+ content: 'МОГИЛА ПИСЬМЕННИКА';
+}
+
+.m3::before {
+ content: 'БУДИНОК ПИСЬМЕННИКА';
+}
+
+.p1::before {
+ content: 'МАКСИМ РИЛЬСЬКИЙ';
+}
+
+.p3::before {
+ content: 'ОСТАП ВИШНЯ';
+}
+
+.frameForMainPhoto:hover::before, .frameForMemoryPhoto:hover::before, .frameForPhoto:hover::before {
+ opacity: 1;
+ transform: perspective(500px) translateZ(0);
+}
+
+.frameForMainPhoto:hover .mainPhoto, .frameForMemoryPhoto:hover .memoryPhoto, .frameForPhoto:hover .photo {
+ transform: scale(1.1);
+}
+
+.mainText {
+ width: 920px;
+ height: 405px;
+ font-size: 27px;
+ color: white;
+ position: absolute;
+ right: 10px;
+ top: 10px;
+ line-height: 1.5;
+ transform: translateY(440px);
+ transition: 1s;
+}
+
+#buttons {
+ width: 100%;
+ height: 30px;
+ position: absolute;
+ top: 450px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.button {
+ width: 14px;
+ height: 14px;
+ background: black;
+ border-radius: 50%;
+ margin: 10px;
+ cursor: pointer;
+ transition: .2s;
+ position: relative;
+}
+
+.button::before {
+ content: '';
+ width: 100%;
+ height: 100%;
+ border-radius: 50%;
+ background: red;
+ position: absolute;
+ transform: scale(0);
+ transition: .15s;
+}
+
+.button:hover::before {
+ transform: scale(1);
+}
+
+#b2 {
+ transform: scale(1.4);
+}
+
+#statement {
+ width: 100%;
+ height: 400px;
+ background: url("PICTURES/bg.jpg") no-repeat center/cover;
+ background-attachment: fixed;
+ position: absolute;
+ top: 492.5px;
+ box-shadow: 0 0 20px rgba(0,0,0,0.5) inset;
+ font-size: 55px;
+ text-shadow: 0 0 10px rgba(0,0,0,0.5);
+ display: flex;
+ align-content: center;
+ justify-content: center;
+ flex-wrap: wrap;
+ color: white;
+ overflow: hidden;
+}
+
+.statementBlock {
+ width: 100%;
+ display: inline-block;
+ transform: translateY(350px);
+ transition: .8s;
+ text-align: center;
+}
+
+#statementBlock2 {
+ transition-delay: .13s;
+}
+
+#statementBlock3 {
+ transition-delay: .26s;
+}
+
+#statementBlock4 {
+ transition-delay: .39s;
+}
+
+.titles {
+ position: absolute;
+ width: 100%;
+ height: 100px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.hrs {
+ position: absolute;
+ width: 100%;
+ height: 32px;
+}
+
+#mark { top: 872px; }
+#hrs1 { top: 972px; }
+
+#gray1 {
+ width: 100%;
+ height: 200.6px;
+ position: absolute;
+ top: 1004.4px;
+ background: #FFF8FA;
+ overflow: hidden;
+}
+
+#gray2 {
+ width: 100%;
+ height: 180.6px;
+ position: absolute;
+ top: 1205.4px;
+ overflow: hidden;
+}
+
+#gray3 {
+ width: 100%;
+ height: 150.6px;
+ position: absolute;
+ top: 1386.4px;
+ background: #FFF8FA;
+ overflow: hidden;
+}
+
+.circle {
+ width: 110px;
+ height: 110px;
+ border-radius: 50%;
+ position: absolute;
+ margin: 10px;
+ transform: translateX(-130px);
+ transition: .7s;
+}
+
+#circle1 {
+ background: url("PICTURES/valentin.jpg") no-repeat center/cover;
+ top: 35.3px;
+}
+
+#circle2 {
+ background: url("PICTURES/nadiya.jpg") no-repeat center/cover;
+ top: 25.3px;
+}
+
+#circle3 {
+ background: url("PICTURES/ostap.jpg") no-repeat center/cover;
+ top: 10.3px;
+}
+
+.markText {
+ width: calc(100% - 150px);
+ height: calc(100% - 20px);
+ text-align: center;
+ font-size: 20px;
+ position: absolute;
+ right: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 10px;
+ transform: translateY(100%);
+ line-height: 1.5;
+ transition: 1s;
+}
+
+#memory { top: 1516px; }
+#hrs2 { top: 1616px; }
+
+#memoryPhotos {
+ position: absolute;
+ top: 1648.4px;
+ width: 100%;
+ height: 566px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.frameForMemoryPhoto {
+ width: 300px;
+ height: 480px;
+ margin: 21.5px;
+ position: relative;
+ cursor: pointer;
+ overflow: hidden;
+ transition: 1.2s;
+}
+
+.m1, .p1 {
+ transform: translateX(-560px);
+}
+
+.m3, .p3 {
+ transform: translateX(560px);
+}
+
+.photos {
+ width: 100%;
+ height: 491px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.frameForPhoto {
+ width: 290px;
+ height: 405px;
+ position: relative;
+ margin: 21.5px;
+ cursor: pointer;
+ overflow: hidden;
+ transition: 1.2s;
+}
+
+#childhood { top: 470px; }
+#hrs3 { top: 570px; }
+
+#begin { top: 1071px; }
+#hrs4 { top: 1171px; }
+
+#endBiography { top: 1922px; }
+#hrs6 { top: 2022px; }
+
+.biography {
+ font-size: 20px;
+ overflow: hidden;
+ width: 100%;
+ position: absolute;
+}
+
+.biography:nth-child(odd) {
+ background: #FFF8FA;
+}
+
+#biography1 { top: 602.4px; height: 139.2px; }
+#biography2 { top: 742.4px; height: 349.2px; }
+#biography3 { top: 1203.4px; height: 289.2px; }
+#biography4 { top: 1493.4px; height: 139.2px; }
+#biography5 { top: 1633.4px; height: 169.2px; }
+#biography6 { top: 1803.4px; height: 139.2px; }
+#biography7 { top: 2054.4px; height: 169.2px; }
+#biography8 { top: 2224.4px; height: 139.2px; }
+#biography9 { top: 2364.4px; height: 229.2px; }
+#biography10 { top: 2594.4px; height: 109.2px; }
+
+.biographyText {
+ padding: 0 10px;
+ line-height: 1.5;
+ transform: translateY(100%);
+ transition: 1s;
+ display: flex;
+ align-items: center;
+ height: 100%;
+}
+
+#descBlock {
+ width: 100%;
+ height: 290.4px;
+ position: absolute;
+ top: 0;
+ overflow: hidden;
+ background: #FFF8FA;
+}
+
+#books {
+ margin: 10px;
+ width: 210px;
+ height: 270.4px;
+ background: url("PICTURES/book_3.jpg") no-repeat center/cover;
+ position: absolute;
+ transform: translateX(-230px);
+ transition: 1s;
+}
+
+#artDescription {
+ width: calc(100% - 250px);
+ font-size: 20px;
+ position: absolute;
+ right: 0;
+ transform: translateY(100%);
+ line-height: 1.5;
+ transition: 1s;
+ display: flex;
+ align-items: center;
+ padding: 10px;
+}
+
+#art { top: 269px; }
+#hrs5 { top: 369px; }
+
+#ulMain {
+ position: absolute;
+ top: 385.4px;
+ left: -39.6px;
+ width: 100%;
+}
+
+#list {
+ position: absolute;
+ top: 95.4px;
+ left: -39.6px;
+ width: 100%;
+}
+
+#bikesPictures {
+ display: none;
+ background: white;
+ width: 400px;
+ height: 180px;
+ position: absolute;
+ top: 10px;
+ right: 10px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ z-index: 1;
+ align-items: center;
+ justify-content: center;
+}
+
+#book_1 {
+ background: url("PICTURES/book_1.jpg") no-repeat center/cover;
+ width: 120px;
+ height: 160px;
+ margin: 5px;
+}
+
+#book_2 {
+ background: url("PICTURES/book_2.jpg") no-repeat center/cover;
+ width: 120px;
+ height: 160px;
+ margin: 5px;
+}
+
+#book_4 {
+ background: url("PICTURES/book_4.jpg") no-repeat center/cover;
+ width: 120px;
+ height: 160px;
+ margin: 5px;
+}
+
+.artMain:nth-child(1):hover ~ #bikesPictures, #bikesPictures:hover {
+ display: flex;
+}
+
+.artMain, .bikes {
+ width: 100%;
+ height: 95px;
+ display: flex;
+ align-items: center;
+ overflow: hidden;
+ transition: .3s;
+ cursor: pointer;
+}
+
+.listOption {
+ width: 100%;
+ height: 95px;
+ display: flex;
+ align-items: center;
+ overflow: hidden;
+ background: #FFF8FA;
+}
+
+.bikes:nth-child(odd) {
+ background: #FFF8FA;
+}
+
+.artMain:nth-child(2n+3) {
+ background: #FFF8FA;
+}
+
+.artMain:hover, .bikes:hover {
+ background: red;
+}
+
+.artMain:hover .h2, .bikes:hover .h2 {
+ transition: .3s;
+ color: white;
+}
+
+.h2 {
+ height: 100%;
+ transform: translateY(100%);
+ transition: 1s;
+ margin-left: 20px;
+ display: flex;
+ align-items: center;
+}
+
+#list ul {
+ padding: 10px 40px;
+ font-size: 20px;
+ line-height: 1.5;
+}
+
+#ulBikes {
+ position: absolute;
+ top: -15.6px;
+ left: -39.6px;
+ width: 100%;
+}
+
+.bikesText {
+ padding: 0 0 10px 10px;
+ font-size: 20px;
+ line-height: 1.5;
+ display: none;
+ background: white;
+ width: 40%;
+ position: absolute;
+ right: 10px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ z-index: 1;
+ cursor: default;
+}
+
+.bikesText:hover {
+ display: block;
+}
+
+.bikesText.noneBlock {
+ display: block;
+}
+
+#lyrics1 { top: -21px; }
+#hrs7 { top: 79px; }
+
+#lyrics2 { top: 860px; }
+#hrs8 { top: 960px; }
+
+#lyrics3 { top: 1891px; }
+#hrs9 { top: 1991px; }
+
+#lyrics4 { top: 2922px; }
+#hrs10 { top: 3022px; }
+
+#lyrics5 { top: 3653px; }
+#hrs11 { top: 3753px; }
+
+#lyrics6 { top: 4324px; }
+#hrs12 { top: 4424px; }
+
+#lyrics7 { top: 4605px; }
+#hrs13 { top: 4705px; }
+
+#lyrics8 { top: 4856px; }
+#hrs14 { top: 4956px; }
+
+.lyricsText {
+ width: 100%;
+ font-size: 20px;
+ position: absolute;
+ text-align: center;
+ line-height: 1.5;
+ padding: 10px;
+}
+
+.lyricsText:nth-child(3) { top: 111.4px; background: #FFF8FA; }
+.lyricsText:nth-child(6) { top: 992.4px; }
+.lyricsText:nth-child(9) { top: 2023.4px; background: #FFF8FA; }
+.lyricsText:nth-child(12) { top: 3054.4px; }
+.lyricsText:nth-child(15) { top: 3785.4px; background: #FFF8FA; }
+.lyricsText:nth-child(18) { top: 4456.4px; }
+.lyricsText:nth-child(21) { top: 4737.4px; background: #FFF8FA; }
+.lyricsText:nth-child(24) { top: 4988.4px; }
+
+#end {
+ width: 100%;
+ height: 170px;
+ background: black;
+ position: absolute;
+ bottom: 0;
+ color: white;
+ letter-spacing: 2px;
+ box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+#link1 {
+ display: inline-block;
+ transform: translateY(180px);
+ transition: .7s;
+}
+
+#link2 {
+ display: inline-block;
+ transform: translateY(180px);
+ transition: .7s;
+ transition-delay: .1s;
+}
+
+#link3 {
+ display: inline-block;
+ transform: translateY(180px);
+ transition: .7s;
+ transition-delay: .2s;
+}
+
+#gray1.active #circle1, #gray2.active #circle2, #gray3.active #circle3, #name.active, #end.active #link1, #end.active #link2, #end.active #link3, #gray1.active #markText1, #gray2.active #markText2, #gray3.active #markText3, #memoryPhotos.active .m1, #memoryPhotos.active .m3, #statement.active #statementBlock1, #statement.active #statementBlock2, #statement.active #statementBlock3, #statement.active #statementBlock4, .biography.active .biographyText, .photos.active .p1, .photos.active .p3, #descBlock.active #artDescription, #descBlock.active #books, .artMain.active .h2, .bikes.active .h2, .listOption.active .h2, #sliderBlock.active .mainText, #sliderBlock.active .frameForMainPhoto {
+ transform: translate(0,0);
+ opacity: 1;
+}
